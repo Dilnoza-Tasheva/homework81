@@ -9,8 +9,8 @@ const port = 8000;
 
 app.use(cors());
 app.use(express.json());
-
 app.use('/links', linksRouter);
+app.use(linksRouter);
 
 const run = async () => {
     await mongoose.connect('mongodb://localhost/link');

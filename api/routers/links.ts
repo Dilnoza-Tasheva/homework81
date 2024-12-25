@@ -27,7 +27,8 @@ linksRouter.post('/', async (req, res) => {
     };
     const link = new Link(newLink);
     try {
-        await link.save();
+        const savedLink = await link.save();
+        res.status(201).send(savedLink);
     } catch (error) {
         res.status(400).send(error);
         return
